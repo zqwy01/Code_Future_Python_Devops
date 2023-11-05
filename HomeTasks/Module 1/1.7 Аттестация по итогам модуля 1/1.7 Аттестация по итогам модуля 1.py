@@ -1,9 +1,17 @@
 import os, time
+from sys import platform
 #Привет, это программа-задачник!
 
 #Функция для очистки терминала от визуального мусора
-def clear_shell(): 
-    os.system('cls')
+def clear_shell():
+    if platform == "linux" or platform == "linux2":
+        print('linux')
+        os.system('clear')
+    elif platform == "darwin":
+        print('history -c')
+    elif platform == "win32":
+        print('windows')
+        os.system('cls')
 clear_shell()
 
 #Создадим необходимое окружение для задачника
